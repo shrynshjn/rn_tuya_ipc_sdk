@@ -9,6 +9,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.tuya.smart.android.user.api.ILoginCallback;
@@ -16,9 +17,14 @@ import com.tuya.smart.android.user.api.IRegisterCallback;
 import com.tuya.smart.home.sdk.TuyaHomeSdk;
 import com.tuya.smart.android.user.bean.User;
 import com.tuya.smart.home.sdk.bean.HomeBean;
+import com.tuya.smart.home.sdk.builder.TuyaCameraActivatorBuilder;
 import com.tuya.smart.home.sdk.callback.ITuyaGetHomeListCallback;
 import com.tuya.smart.home.sdk.callback.ITuyaHomeResultCallback;
 import com.tuya.smart.sdk.api.IResultCallback;
+import com.tuya.smart.sdk.api.ITuyaActivatorGetToken;
+import com.tuya.smart.sdk.api.ITuyaCameraDevActivator;
+import com.tuya.smart.sdk.api.ITuyaSmartCameraActivatorListener;
+import com.tuya.smart.sdk.bean.DeviceBean;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -198,6 +204,123 @@ public class RNTuyaManager extends ReactContextBaseJavaModule {
                 }
             };
             TuyaHomeSdk.getHomeManagerInstance().queryHomeList(callback);
+        } catch (Exception e) {
+            WritableMap map = Arguments.createMap();
+            map.putBoolean("success", false);
+            map.putString("message", e.getMessage());
+            promise.resolve(map);
+        }
+    }
+
+    @ReactMethod
+    public void getTuyaWifiQRToken(String homeId, Promise promise) {
+        try {
+            ITuyaActivatorGetToken callback = new ITuyaActivatorGetToken() {
+                @Override
+                public void onSuccess(String token) {
+                    Log.d("AlisteTuya", "[getTuyaWifiQRToken][success]" + token);
+                    WritableMap map = Arguments.createMap();
+                    map.putBoolean("success", true);
+                    map.putString("token", token);
+                    promise.resolve(map);
+                }
+
+                @Override
+                public void onFailure(String errorCode, String errorMsg) {
+                    Log.d("AlisteTuya", "[getTuyaWifiQRToken][error]" + errorCode + " : " + errorMsg);
+                    WritableMap map = Arguments.createMap();
+                    map.putBoolean("success", false);
+                    map.putString("message", errorMsg);
+                    promise.resolve(map);
+                }
+            };
+          TuyaHomeSdk.getActivatorInstance().getActivatorToken(Long.valueOf(homeId), callback);
+        } catch (Exception e) {
+            WritableMap map = Arguments.createMap();
+            map.putBoolean("success", false);
+            map.putString("message", e.getMessage());
+            promise.resolve(map);
+        }
+    }
+
+    @ReactMethod
+    public void getTuyaWifiQRUrl(String ssid, String password, String token, Promise promise) {
+        Log.d("AlisteTuya", "[getTuyaWifiQRUrl]params: " + ssid + "," + password + "," + token + ",");
+        ITuyaSmartCameraActivatorListener listener = new ITuyaSmartCameraActivatorListener() {
+            @Override
+            public void onQRCodeSuccess(String qrcodeUrl) {
+                Log.d("AlisteTuya", "[getTuyaWifiQRUrl][success]" + qrcodeUrl);
+                WritableMap map = Arguments.createMap();
+                map.putBoolean("success", true);
+                map.putString("qrUrl", qrcodeUrl);
+                promise.resolve(map);
+            }
+
+            @Override
+            public void onError(String errorCode, String errorMsg) {
+                Log.d("AlisteTuya", "[getTuyaWifiQRUrl][error]" + errorCode + " : " + errorMsg);
+                WritableMap map = Arguments.createMap();
+                map.putBoolean("success", false);
+                map.putString("message", errorMsg);
+                promise.resolve(map);
+            }
+
+            @Override
+            public void onActiveSuccess(DeviceBean devResp) {
+                Log.d("AlisteTuya", "[getTuyaWifiQRToken][onActiveSuccess]" + devResp.devId);
+                WritableMap map = Arguments.createMap();
+                map.putBoolean("success", false);
+                map.putString("message", "Device Paired Successfully");
+                map.putString("deviceId", devResp.devId);
+                map.putString("uuid", devResp.uuid);
+                //promise.resolve(map);
+            }
+        };
+        TuyaCameraActivatorBuilder builder = new TuyaCameraActivatorBuilder()
+                .setContext(reactApplicationContext)
+                .setSsid(ssid)
+                .setPassword(password)
+                .setToken(token)
+                .setTimeOut(100000)
+                .setListener(listener);
+        ITuyaCameraDevActivator mTuyaActivator = TuyaHomeSdk.getActivatorInstance().newCameraDevActivator(builder);
+        mTuyaActivator.createQRCode();
+        mTuyaActivator.start();
+    }
+
+    @ReactMethod
+    public void getTuyaCamerasList(String homeId, Promise promise) {
+        try {
+            ITuyaHomeResultCallback callback = new ITuyaHomeResultCallback() {
+                @Override
+                public void onSuccess(HomeBean bean) {
+                    Log.d("AlisteTuya", "[getTuyaCamerasList][success]" + bean.getName());
+                    List<DeviceBean> deviceBeans = bean.getDeviceList();
+                    WritableArray devices = Arguments.createArray();
+                    for (DeviceBean deviceBean: deviceBeans) {
+                        WritableMap device = Arguments.createMap();
+                        device.putString("deviceId", deviceBean.devId);
+                        device.putString("uuid", deviceBean.uuid);
+                        device.putInt("ability", deviceBean.ability);
+                        device.putString("name", deviceBean.name);
+                        devices.pushMap(device);
+                    }
+                    WritableMap map = Arguments.createMap();
+                    map.putBoolean("success", true);
+                    map.putArray("devices", devices);
+                    promise.resolve(map);
+                }
+
+                @Override
+                public void onError(String errorCode, String errorMsg) {
+                    Log.d("AlisteTuya", "[getTuyaCamersList][error]" + errorCode + " : " + errorMsg);
+                    WritableMap map = Arguments.createMap();
+                    map.putBoolean("success", false);
+                    map.putString("message", errorMsg);
+                    promise.resolve(map);
+                }
+            };
+            TuyaHomeSdk.newHomeInstance(Long.valueOf(homeId)).getHomeDetail(callback);
         } catch (Exception e) {
             WritableMap map = Arguments.createMap();
             map.putBoolean("success", false);
