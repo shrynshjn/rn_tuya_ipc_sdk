@@ -12,6 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import tuya.rntuya.RNTuyaPackage;
+import tuya.rntuyacamera.TuyaCameraPackage;
 
 public class MainApplication extends Application implements ReactApplication {
     private static MainApplication instance;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
             packages.add(new RNTuyaPackage());
+            packages.add(new TuyaCameraPackage());
           return packages;
         }
 

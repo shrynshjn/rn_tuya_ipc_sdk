@@ -19,10 +19,12 @@ import {
   Dimensions,
 } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
-
+import {RNTuyaCameraPlayer} from './NativeComponents';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimensions';
 const {RNTuya} = NativeModules;
+const defaultWS = 'Aliste Automation 2.4G';
+const defaultWP = '9873382165';
 RNTuya.initializeTuya().then(a => {
   console.log(a);
 });
@@ -36,6 +38,9 @@ const App = () => {
   const homeId = '5576231'; //CameraHouse;
   const [qrToken, setQRToken] = useState('');
   const [qrUrl, setQrUrl] = useState('qrUrl');
+  const [ws, setWS] = useState(defaultWS);
+  const [wp, setWP] = useState(defaultWP);
+  const [deviceId, setDeviceId] = useState('');
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
@@ -113,11 +118,7 @@ const App = () => {
           title={'Get Wifi QR URL'}
           onPress={() => {
             console.log('Get wifi qr url');
-            RNTuya.getTuyaWifiQRUrl(
-              'Aliste Automation 2.4G',
-              '9873382165',
-              qrToken,
-            ).then(qrUrlResult => {
+            RNTuya.getTuyaWifiQRUrl(ws, wp, qrToken).then(qrUrlResult => {
               console.log(JSON.stringify({qrUrlResult}, null, 2));
               if (qrUrlResult.success) {
                 setQrUrl(qrUrlResult.qrUrl);
@@ -126,11 +127,17 @@ const App = () => {
           }}
         />
         <Button
-          title={'Get Cameras List'}
+          title={'Get Devices List'}
           onPress={() => {
-            RNTuya.getTuyaCamerasList(homeId).then(cameraListResult => {
+            RNTuya.getTuyaDevicesList(homeId).then(cameraListResult => {
               console.log(JSON.stringify({cameraListResult}, null, 2));
             });
+          }}
+        />
+        <Button
+          title="Set Device Id"
+          onPress={() => {
+            setDeviceId('d75f132c5d097de9bftwdd');
           }}
         />
         <View
@@ -139,6 +146,17 @@ const App = () => {
             marginHorizontal: (Dimensions.get('window').width - 300) / 2,
           }}>
           <QRCode value={qrUrl} size={300} />
+        </View>
+        <View
+          style={{
+            height: 400,
+            width: Dimensions.get('window').width,
+            backgroundColor: 'black',
+          }}>
+          <RNTuyaCameraPlayer
+            deviceId={deviceId}
+            style={{backgroundColor: 'blue', flex: 1}}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>

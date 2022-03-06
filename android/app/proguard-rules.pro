@@ -26,3 +26,6 @@
 
 -keep class com.tuya.**{*;}
 -dontwarn com.tuya.**
+
+-keep class com.tuyasmart.**{*;}
+-dontwarn com.tuyasmart.**

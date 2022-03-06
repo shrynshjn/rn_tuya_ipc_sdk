@@ -12,6 +12,7 @@ import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
+import com.tuya.smart.android.camera.sdk.TuyaIPCSdk;
 import com.tuya.smart.android.user.api.ILoginCallback;
 import com.tuya.smart.android.user.api.IRegisterCallback;
 import com.tuya.smart.home.sdk.TuyaHomeSdk;
@@ -31,6 +32,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
+import tuya.utils.CameraUtils;
+
 public class RNTuyaManager extends ReactContextBaseJavaModule {
     private ReactApplicationContext reactApplicationContext;
 
@@ -48,6 +51,7 @@ public class RNTuyaManager extends ReactContextBaseJavaModule {
         Log.d("AlisteTuya", "initializeTuyaCalled");
         try {
             TuyaHomeSdk.init(MainApplication.getInstance());
+            CameraUtils.init(MainApplication.getInstance());
             WritableMap map = Arguments.createMap();
             map.putBoolean("success", true);
             map.putString("message", "Initialization was smooth");
@@ -289,12 +293,12 @@ public class RNTuyaManager extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void getTuyaCamerasList(String homeId, Promise promise) {
+    public void getTuyaDevicesList(String homeId, Promise promise) {
         try {
             ITuyaHomeResultCallback callback = new ITuyaHomeResultCallback() {
                 @Override
                 public void onSuccess(HomeBean bean) {
-                    Log.d("AlisteTuya", "[getTuyaCamerasList][success]" + bean.getName());
+                    Log.d("AlisteTuya", "[getTuyaDevicesList][success]" + bean.getName());
                     List<DeviceBean> deviceBeans = bean.getDeviceList();
                     WritableArray devices = Arguments.createArray();
                     for (DeviceBean deviceBean: deviceBeans) {
@@ -303,6 +307,7 @@ public class RNTuyaManager extends ReactContextBaseJavaModule {
                         device.putString("uuid", deviceBean.uuid);
                         device.putInt("ability", deviceBean.ability);
                         device.putString("name", deviceBean.name);
+                        device.putString("getDevId", deviceBean.getDevId());
                         devices.pushMap(device);
                     }
                     WritableMap map = Arguments.createMap();
@@ -313,7 +318,7 @@ public class RNTuyaManager extends ReactContextBaseJavaModule {
 
                 @Override
                 public void onError(String errorCode, String errorMsg) {
-                    Log.d("AlisteTuya", "[getTuyaCamersList][error]" + errorCode + " : " + errorMsg);
+                    Log.d("AlisteTuya", "[getTuyaDevicesList][error]" + errorCode + " : " + errorMsg);
                     WritableMap map = Arguments.createMap();
                     map.putBoolean("success", false);
                     map.putString("message", errorMsg);
