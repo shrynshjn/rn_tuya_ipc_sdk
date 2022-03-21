@@ -198,7 +198,7 @@ dependencies {
   implementation 'com.alibaba:fastjson:1.1.67.android'
 	implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.14.9'
 	// The latest stable App SDK for Android.
-	implementation 'com.tuya.smart:tuyasmart:3.34.8'
+	  implementation 'com.tuya.smart:tuyasmart:3.34.8'
     implementation 'com.tuya.smart:tuyasmart-ipcsdk:3.34.5'
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion

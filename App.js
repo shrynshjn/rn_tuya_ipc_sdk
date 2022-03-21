@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -17,11 +17,13 @@ import {
   Button,
   View,
   Dimensions,
+  findNodeHandle,
+  UIManager,
+  PermissionsAndroid,
 } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import {RNTuyaCameraPlayer} from './NativeComponents';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import useWindowDimensions from 'react-native/Libraries/Utilities/useWindowDimensions';
 const {RNTuya} = NativeModules;
 const defaultWS = 'Aliste Automation 2.4G';
 const defaultWP = '9873382165';
@@ -41,18 +43,37 @@ const App = () => {
   const [ws, setWS] = useState(defaultWS);
   const [wp, setWP] = useState(defaultWP);
   const [deviceId, setDeviceId] = useState('');
+  const [play, setPlay] = useState(false);
+  const [speak, setSpeak] = useState(false);
+  const [listen, setListen] = useState(false);
+  const [init, setInit] = useState(false);
+  const [cameras, setCameras] = useState([]);
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
+  const cameraRef = useRef();
+  PermissionsAndroid.requestMultiple([
+    'android.permission.READ_EXTERNAL_STORAGE',
+    'android.permission.WRITE_EXTERNAL_STORAGE',
+  ])
+    .then(a => {
+      console.log(a);
+    })
+    .catch(a => {
+      console.log(a);
+    });
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <TextInput value={email} onChangeText={setEmail} />
-        <TextInput value={code} onChangeText={setCode} />
+        <TextInput
+          value={email}
+          onChangeText={setEmail}
+          placeholder={'Email'}
+        />
+        <TextInput value={code} onChangeText={setCode} placeholder={'Code'}/>
         <TextInput value={countryCode} onChangeText={setCountryCode} />
         <TextInput value={password} onChangeText={setPassword} />
         <Button
@@ -131,33 +152,75 @@ const App = () => {
           onPress={() => {
             RNTuya.getTuyaDevicesList(homeId).then(cameraListResult => {
               console.log(JSON.stringify({cameraListResult}, null, 2));
+              setCameras(cameraListResult.devices);
+              setInit(true);
             });
           }}
         />
-        <Button
-          title="Set Device Id"
-          onPress={() => {
-            setDeviceId('d75f132c5d097de9bftwdd');
-          }}
-        />
-        <View
-          style={{
-            marginVertical: 100,
-            marginHorizontal: (Dimensions.get('window').width - 300) / 2,
-          }}>
-          <QRCode value={qrUrl} size={300} />
-        </View>
-        <View
-          style={{
-            height: 400,
-            width: Dimensions.get('window').width,
-            backgroundColor: 'black',
-          }}>
-          <RNTuyaCameraPlayer
-            deviceId={deviceId}
-            style={{backgroundColor: 'blue', flex: 1}}
-          />
-        </View>
+        {qrUrl !== 'qrUrl' && (
+          <View
+            style={{
+              marginVertical: 100,
+              marginHorizontal: (Dimensions.get('window').width - 300) / 2,
+            }}>
+            <QRCode value={qrUrl} size={300} />
+          </View>
+        )}
+        {cameras.map((camera, index) => (
+          <View style={{marginVertical: 15}}>
+            <View
+              style={{
+                height: 200,
+                width: Dimensions.get('window').width,
+                backgroundColor: 'black',
+              }}>
+              <RNTuyaCameraPlayer
+                ref={index === 0 ? cameraRef : undefined}
+                deviceId={camera.deviceId}
+                style={{backgroundColor: 'blue', flex: 1}}
+                initialized={init}
+                speak={speak}
+                play={play}
+                listen={listen}
+                onStatusChanged={({nativeEvent}) => {
+                  console.log('onStatusChanged', nativeEvent);
+                }}
+                onSaveSnapComplete={({nativeEvent}) => {
+                  console.log('onSaveSnapComplete', nativeEvent);
+                }}
+              />
+            </View>
+            <Button
+              title={!speak ? 'Speak' : 'Stop speak'}
+              onPress={() => {
+                setSpeak(!speak);
+              }}
+            />
+            <Button
+              title={!listen ? 'Stop Listen' : 'Stop Listen'}
+              onPress={() => {
+                setListen(!listen);
+              }}
+            />
+            <Button
+              title={!play ? 'Play' : 'Pause'}
+              onPress={() => {
+                setPlay(!play);
+              }}
+            />
+            <Button
+              title="Save Screenshot"
+              onPress={() => {
+                console.log('node handle', findNodeHandle(cameraRef.current));
+                UIManager.dispatchViewManagerCommand(
+                  findNodeHandle(cameraRef.current),
+                  '0',
+                  [findNodeHandle(cameraRef.current)],
+                );
+              }}
+            />
+          </View>
+        ))}
       </ScrollView>
     </SafeAreaView>
   );

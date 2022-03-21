@@ -18,15 +18,27 @@ public class TuyaCameraEventEmitter {
     TuyaCameraEventEmitter(ReactContext reactContext) {
         this.eventEmitter = reactContext.getJSModule(RCTEventEmitter.class);
     }
-
     public static final String EVENT_CAMERA_EVENT = "onCameraEvent";
+    public static final String EVENT_PLAYING = "onPlayingChanged";
+    public static final String EVENT_SPEAKING = "onSpeakingChanged";
+    public static final String EVENT_LISTENING = "onListeningChanged";
+    public static final String EVENT_STATUS = "onStatusChanged";
+    public static final String EVENT_SAVE_SNAP_COMPLETE = "onSaveSnapComplete";
     static final String[] Events = {
-
+            EVENT_PLAYING,
+            EVENT_SPEAKING,
+            EVENT_LISTENING,
+            EVENT_STATUS,
             EVENT_CAMERA_EVENT,
+            EVENT_SAVE_SNAP_COMPLETE,
     };
 
     @Retention(RetentionPolicy.SOURCE)
     @StringDef({
+            EVENT_PLAYING,
+            EVENT_SPEAKING,
+            EVENT_LISTENING,
+            EVENT_STATUS,
             EVENT_CAMERA_EVENT,
     })
 

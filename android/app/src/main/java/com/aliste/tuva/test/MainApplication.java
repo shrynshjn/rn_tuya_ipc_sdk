@@ -15,7 +15,7 @@ import tuya.rntuya.RNTuyaPackage;
 import tuya.rntuyacamera.TuyaCameraPackage;
 
 public class MainApplication extends Application implements ReactApplication {
-    private static MainApplication instance;
+  private static MainApplication instance;
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {
         @Override
