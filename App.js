@@ -196,28 +196,29 @@ const App = () => {
             <QRCode value={qrUrl} size={300} />
           </View>
         )}
-        {/* {cameras.map((camera, index) => (
+        {cameras.map((camera, index) => (
           <View style={{marginVertical: 15}}>
             <View
               style={{
                 height: 200,
                 width: Dimensions.get('window').width,
                 backgroundColor: 'black',
+                flex: 1,
               }}>
               <RNTuyaCameraPlayer
                 ref={index === 0 ? cameraRef : undefined}
                 deviceId={camera.deviceId}
                 style={{backgroundColor: 'blue', flex: 1}}
-                initialized={init}
+                //initialized={init}
                 speak={speak}
                 play={play}
                 listen={listen}
-                onStatusChanged={({nativeEvent}) => {
-                  console.log('onStatusChanged', nativeEvent);
-                }}
-                onSaveSnapComplete={({nativeEvent}) => {
-                  console.log('onSaveSnapComplete', nativeEvent);
-                }}
+                // onStatusChanged={({nativeEvent}) => {
+                //   console.log('onStatusChanged', nativeEvent);
+                // }}
+                // onSaveSnapComplete={({nativeEvent}) => {
+                //   console.log('onSaveSnapComplete', nativeEvent);
+                // }}
               />
             </View>
             <Button
@@ -250,7 +251,7 @@ const App = () => {
               }}
             />
           </View>
-        ))} */}
+        ))}
       </ScrollView>
     </SafeAreaView>
   );

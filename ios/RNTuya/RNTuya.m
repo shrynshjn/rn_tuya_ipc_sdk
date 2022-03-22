@@ -193,6 +193,8 @@ RCT_EXPORT_METHOD(getTuyaDevicesList:
           @"uuid": [device uuid],
           @"ability": @([device ability]),
           @"name": [device name],
+          @"p2pType": @([device p2pType]),
+          @"online": @([device isOnline]),
         }];
       }
       resolve(@{

@@ -9,12 +9,17 @@
 #define RNTuyaCameraPlayerView_h
 
 
-@interface RNTuyaCameraPlayer : UIView
-@property(nonatomic, assign) BOOL *speaking;
+@interface RNTuyaCameraPlayer : UIView <TuyaSmartCameraDelegate>
+@property(nonatomic, assign) BOOL  *speaking;
 @property(nonatomic, assign) BOOL *listening;
-@property(nonatomic, assign) BOOL *playing;
+@property(nonatomic, assign) BOOL  *playing;
 @property(nonatomic, assign) NSString *deviceId;
-@property(nonatomic, assign) BOOL *inited;
-@property TuyaSmartDe
+@property(nonatomic, assign) BOOL *initialized;
+@property NSObject <TuyaSmartCameraType> *camera;
+@property(nonatomic, assign) BOOL  *connected;
+@property(nonatomic, assign) BOOL *play;
+@property(nonatomic, assign) BOOL *speak;
+@property(nonatomic, assign) BOOL *listen;
+
 @end
 #endif /* RNTuyaCameraPlayerView_h */
