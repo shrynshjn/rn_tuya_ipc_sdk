@@ -25,8 +25,8 @@ import QRCode from 'react-native-qrcode-svg';
 import {RNTuyaCameraPlayer} from './NativeComponents';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 const {RNTuya} = NativeModules;
-const defaultWS = 'Aliste Automation 2.4G';
-const defaultWP = '9873382165';
+const defaultWS = 'Graphketing' //'Aliste Automation 2.4G';
+const defaultWP = '9910016426' //'9873382165';
 RNTuya.initializeTuya().then(a => {
   console.log(a);
 });
@@ -73,7 +73,7 @@ const App = () => {
           onChangeText={setEmail}
           placeholder={'Email'}
         />
-        <TextInput value={code} onChangeText={setCode} placeholder={'Code'}/>
+        <TextInput value={code} onChangeText={setCode} placeholder={'Code'} />
         <TextInput value={countryCode} onChangeText={setCountryCode} />
         <TextInput value={password} onChangeText={setPassword} />
         <Button
@@ -136,6 +136,36 @@ const App = () => {
           }}
         />
         <Button
+          title={'Set wifi qr url'}
+          onPress={() => {
+            setQrUrl(
+              JSON.stringify({
+                p: wp,
+                s: ws,
+                t: qrToken,
+              }),
+            );
+          }}
+        />
+        <Button
+          title={'Start AP Config'}
+          onPress={() => {
+            RNTuya.startTuyaAPDevicePairing(ws, wp, qrToken).then(
+              startAPResult => {
+                console.log(JSON.stringify({startAPResult}, null, 2));
+              },
+            );
+          }}
+        />
+        <Button
+          title={'Stop AP Config'}
+          onPress={() => {
+            RNTuya.stopTuyaAPDevicePairing().then(stopApResult => {
+              console.log(JSON.stringify({stopApResult}, null, 2));
+            });
+          }}
+        />
+        <Button
           title={'Get Wifi QR URL'}
           onPress={() => {
             console.log('Get wifi qr url');
@@ -166,7 +196,7 @@ const App = () => {
             <QRCode value={qrUrl} size={300} />
           </View>
         )}
-        {cameras.map((camera, index) => (
+        {/* {cameras.map((camera, index) => (
           <View style={{marginVertical: 15}}>
             <View
               style={{
@@ -220,7 +250,7 @@ const App = () => {
               }}
             />
           </View>
-        ))}
+        ))} */}
       </ScrollView>
     </SafeAreaView>
   );

@@ -11,7 +11,13 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		5BE6884E0EAAA009F2F81BCA /* libPods-AlisteTuya.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFE2050492A48D01DC10B0EA /* libPods-AlisteTuya.a */; };
+		730BED1EF428300DABB3074C /* libPods-AlisteTuya-AlisteTuyaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9531F2C5648D0ECE8933EC /* libPods-AlisteTuya-AlisteTuyaTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CA5D4A9527E8610400A4FB20 /* t_s.bmp in Resources */ = {isa = PBXBuildFile; fileRef = CA5D4A9427E8610400A4FB20 /* t_s.bmp */; };
+		CA5D4A9727E8623D00A4FB20 /* RNTuya.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5D4A9627E8623D00A4FB20 /* RNTuya.m */; };
+		CA6B897C27E8B3BE003C8F82 /* RNTuyaCameraPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B897B27E8B3BE003C8F82 /* RNTuyaCameraPlayerManager.m */; };
+		CA6B898027E8B5E9003C8F82 /* RNTuyaCameraPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B897F27E8B5E9003C8F82 /* RNTuyaCameraPlayerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +40,22 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AlisteTuya/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AlisteTuya/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AlisteTuya/main.m; sourceTree = "<group>"; };
+		2B9531F2C5648D0ECE8933EC /* libPods-AlisteTuya-AlisteTuyaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlisteTuya-AlisteTuyaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69D83AF5E1DE5BBA600147B8 /* Pods-AlisteTuya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlisteTuya.release.xcconfig"; path = "Target Support Files/Pods-AlisteTuya/Pods-AlisteTuya.release.xcconfig"; sourceTree = "<group>"; };
+		6FDDE95752B07165AB94D7FC /* Pods-AlisteTuya-AlisteTuyaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlisteTuya-AlisteTuyaTests.release.xcconfig"; path = "Target Support Files/Pods-AlisteTuya-AlisteTuyaTests/Pods-AlisteTuya-AlisteTuyaTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AlisteTuya/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		95B394BC8FBAD7B73916ED7F /* Pods-AlisteTuya-AlisteTuyaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlisteTuya-AlisteTuyaTests.debug.xcconfig"; path = "Target Support Files/Pods-AlisteTuya-AlisteTuyaTests/Pods-AlisteTuya-AlisteTuyaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AFE2050492A48D01DC10B0EA /* libPods-AlisteTuya.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlisteTuya.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA0861CF27E8553800CE5987 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CA0861D027E8565300CE5987 /* TuyaAppKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuyaAppKey.h; sourceTree = "<group>"; };
+		CA5D4A9427E8610400A4FB20 /* t_s.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = t_s.bmp; path = AlisteTuya/t_s.bmp; sourceTree = "<group>"; };
+		CA5D4A9627E8623D00A4FB20 /* RNTuya.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTuya.m; sourceTree = "<group>"; };
+		CA5D4A9827E8625000A4FB20 /* RNTuya.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTuya.h; sourceTree = "<group>"; };
+		CA6B897B27E8B3BE003C8F82 /* RNTuyaCameraPlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTuyaCameraPlayerManager.m; sourceTree = "<group>"; };
+		CA6B897D27E8B3E6003C8F82 /* RNTuyaCameraPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTuyaCameraPlayerManager.h; sourceTree = "<group>"; };
+		CA6B897F27E8B5E9003C8F82 /* RNTuyaCameraPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTuyaCameraPlayerView.m; sourceTree = "<group>"; };
+		CA6B898127E8B600003C8F82 /* RNTuyaCameraPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTuyaCameraPlayerView.h; sourceTree = "<group>"; };
+		EBA7B01657E1DDE5066D4A7C /* Pods-AlisteTuya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlisteTuya.debug.xcconfig"; path = "Target Support Files/Pods-AlisteTuya/Pods-AlisteTuya.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -43,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730BED1EF428300DABB3074C /* libPods-AlisteTuya-AlisteTuyaTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE6884E0EAAA009F2F81BCA /* libPods-AlisteTuya.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,8 +113,21 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				AFE2050492A48D01DC10B0EA /* libPods-AlisteTuya.a */,
+				2B9531F2C5648D0ECE8933EC /* libPods-AlisteTuya-AlisteTuyaTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42E0C9DDB5F50A4FCF6D7998 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBA7B01657E1DDE5066D4A7C /* Pods-AlisteTuya.debug.xcconfig */,
+				69D83AF5E1DE5BBA600147B8 /* Pods-AlisteTuya.release.xcconfig */,
+				95B394BC8FBAD7B73916ED7F /* Pods-AlisteTuya-AlisteTuyaTests.debug.xcconfig */,
+				6FDDE95752B07165AB94D7FC /* Pods-AlisteTuya-AlisteTuyaTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -104,11 +140,16 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				CA6B897A27E8A181003C8F82 /* RNTuyaCameraPlayer */,
+				CA5D4A9427E8610400A4FB20 /* t_s.bmp */,
+				CA1697FF27E85C0B0071632E /* RNTuya */,
+				CA0861CF27E8553800CE5987 /* PrefixHeader.pch */,
 				13B07FAE1A68108700A75B9A /* AlisteTuya */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AlisteTuyaTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				42E0C9DDB5F50A4FCF6D7998 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -124,6 +165,27 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		CA1697FF27E85C0B0071632E /* RNTuya */ = {
+			isa = PBXGroup;
+			children = (
+				CA0861D027E8565300CE5987 /* TuyaAppKey.h */,
+				CA5D4A9627E8623D00A4FB20 /* RNTuya.m */,
+				CA5D4A9827E8625000A4FB20 /* RNTuya.h */,
+			);
+			path = RNTuya;
+			sourceTree = "<group>";
+		};
+		CA6B897A27E8A181003C8F82 /* RNTuyaCameraPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				CA6B897B27E8B3BE003C8F82 /* RNTuyaCameraPlayerManager.m */,
+				CA6B897D27E8B3E6003C8F82 /* RNTuyaCameraPlayerManager.h */,
+				CA6B897F27E8B5E9003C8F82 /* RNTuyaCameraPlayerView.m */,
+				CA6B898127E8B600003C8F82 /* RNTuyaCameraPlayerView.h */,
+			);
+			path = RNTuyaCameraPlayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +193,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AlisteTuyaTests" */;
 			buildPhases = (
+				2A37E7B84CB0A650FA48B2A0 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				2C24178AFCA1C1C98DE57973 /* [CP] Embed Pods Frameworks */,
+				B3BBE10F221DF33B1B4F2E96 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,11 +214,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AlisteTuya" */;
 			buildPhases = (
+				3842575CAF363DF82BD33086 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				5857B3EABAF188375C972166 /* [CP] Embed Pods Frameworks */,
+				39AE8ECB2802075A1F1C2FE2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA5D4A9527E8610400A4FB20 /* t_s.bmp in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -233,6 +302,118 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		2A37E7B84CB0A650FA48B2A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AlisteTuya-AlisteTuyaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C24178AFCA1C1C98DE57973 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya-AlisteTuyaTests/Pods-AlisteTuya-AlisteTuyaTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya-AlisteTuyaTests/Pods-AlisteTuya-AlisteTuyaTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya-AlisteTuyaTests/Pods-AlisteTuya-AlisteTuyaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3842575CAF363DF82BD33086 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AlisteTuya-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39AE8ECB2802075A1F1C2FE2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya/Pods-AlisteTuya-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya/Pods-AlisteTuya-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya/Pods-AlisteTuya-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5857B3EABAF188375C972166 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya/Pods-AlisteTuya-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya/Pods-AlisteTuya-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya/Pods-AlisteTuya-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3BBE10F221DF33B1B4F2E96 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya-AlisteTuyaTests/Pods-AlisteTuya-AlisteTuyaTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya-AlisteTuyaTests/Pods-AlisteTuya-AlisteTuyaTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AlisteTuya-AlisteTuyaTests/Pods-AlisteTuya-AlisteTuyaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -270,6 +451,9 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				CA6B898027E8B5E9003C8F82 /* RNTuyaCameraPlayerView.m in Sources */,
+				CA6B897C27E8B3BE003C8F82 /* RNTuyaCameraPlayerManager.m in Sources */,
+				CA5D4A9727E8623D00A4FB20 /* RNTuya.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +470,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95B394BC8FBAD7B73916ED7F /* Pods-AlisteTuya-AlisteTuyaTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -312,6 +497,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FDDE95752B07165AB94D7FC /* Pods-AlisteTuya-AlisteTuyaTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -335,11 +521,15 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBA7B01657E1DDE5066D4A7C /* Pods-AlisteTuya.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7XARXU7L8P;
 				ENABLE_BITCODE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = AlisteTuya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -350,7 +540,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliste.tuva.test;
 				PRODUCT_NAME = AlisteTuya;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -360,10 +550,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69D83AF5E1DE5BBA600147B8 /* Pods-AlisteTuya.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7XARXU7L8P;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = AlisteTuya/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -374,7 +568,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aliste.tuva.test;
 				PRODUCT_NAME = AlisteTuya;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -414,6 +608,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -478,6 +673,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
