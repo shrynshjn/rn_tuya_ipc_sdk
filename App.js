@@ -25,7 +25,7 @@ import QRCode from 'react-native-qrcode-svg';
 import {RNTuyaCameraPlayer} from './NativeComponents';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 const {RNTuya} = NativeModules;
-const defaultWS = 'Graphketing' //'Aliste Automation 2.4G';
+const defaultWS = 'Graphketing'; //'Aliste Automation 2.4G';
 const defaultWP = '9910016426' //'9873382165';
 RNTuya.initializeTuya().then(a => {
   console.log(a);
@@ -200,15 +200,15 @@ const App = () => {
           <View style={{marginVertical: 15}}>
             <View
               style={{
-                height: 200,
                 width: Dimensions.get('window').width,
+                height: (Dimensions.get('window').width * 1080) / 1920,
                 backgroundColor: 'black',
                 flex: 1,
               }}>
               <RNTuyaCameraPlayer
                 ref={index === 0 ? cameraRef : undefined}
                 deviceId={camera.deviceId}
-                style={{backgroundColor: 'blue', flex: 1}}
+                style={{backgroundColor: 'white', flex: 1}}
                 //initialized={init}
                 speak={speak}
                 play={play}

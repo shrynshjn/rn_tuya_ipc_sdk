@@ -195,6 +195,7 @@ RCT_EXPORT_METHOD(getTuyaDevicesList:
           @"name": [device name],
           @"p2pType": @([device p2pType]),
           @"online": @([device isOnline]),
+          @"localKey": [device localKey],
         }];
       }
       resolve(@{

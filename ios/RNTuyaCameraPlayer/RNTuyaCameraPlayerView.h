@@ -7,7 +7,8 @@
 
 #ifndef RNTuyaCameraPlayerView_h
 #define RNTuyaCameraPlayerView_h
-
+#define kTuyaSmartIPCConfigAPI @"tuya.m.ipc.config.get"
+#define kTuyaSmartIPCConfigAPIVersion @"2.0"
 
 @interface RNTuyaCameraPlayer : UIView <TuyaSmartCameraDelegate>
 @property(nonatomic, assign) BOOL  *speaking;
